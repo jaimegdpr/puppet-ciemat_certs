@@ -1,4 +1,4 @@
-class ciemat_certs::cron {
+class ciemat_certs::cron_config {
 
     $random_hour = fqdn_rand(6, 'adding more randomness with this seed')
     $random_hour_plus_6h = $random_hour + 6
@@ -17,5 +17,8 @@ class ciemat_certs::cron {
         description => 'Get crls from lcg01',
     } 
 
+    file { '/etc/cron.d/fetch-crl':
+        ensure => absent,
+    }
 
 }
