@@ -10,14 +10,4 @@ class ciemat_certs::install {
         ensure => latest,
     }
 
-    package {'yum-autoupdate':
-        ensure => present,
-        before => Service['yum-autoupdate'],
-    }
-   
-    service { 'yum-autoupdate':
-        ensure => running,
-        enable => true,
-    }
-
 }
