@@ -1,10 +1,12 @@
 class ciemat_certs::cron_config {
 
+    # Generate random hours
     $random_hour = fqdn_rand(6, 'adding more randomness with this seed')
     $random_hour_plus_6h = $random_hour + 6
     $random_hour_plus_12h = $random_hour + 12
     $random_hour_plus_18h = $random_hour + 18
 
+    # Generate multiple cron jobs in the same file
     cron::job::multiple { 'ciemat-fetch-crl':
         jobs => [
           {
@@ -31,8 +33,9 @@ class ciemat_certs::cron_config {
         environment => [ 'MAILTO=root', 'PATH="/sbin:/bin:/usr/sbin:/usr/bin"' ],
     } 
 
-        file { '/etc/cron.d/fetch-crl':
-            ensure => absent,
+    # Default fetch-crl must be removed
+    file { '/etc/cron.d/fetch-crl':
+        ensure => absent,
     }
 
 }
