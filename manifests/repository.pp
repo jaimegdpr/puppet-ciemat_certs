@@ -1,4 +1,4 @@
-class ciemat_certs::repositories {
+class ciemat_certs::repository {
 
     yumrepo { 'EGI-trustanchors':
         name => 'EGI-trustanchors',
