@@ -4,4 +4,8 @@ class ciemat_certs::install {
         ensure => latest,
     }
 
+    package {'ca-policy-lcg':
+        ensure => latest,
+    }
+
 }
